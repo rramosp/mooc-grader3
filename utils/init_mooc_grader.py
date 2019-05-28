@@ -79,8 +79,8 @@ def check_solution (pid):
    import os
 
    grader_fname = "utils/graders/grader_"+pid+".grader"
-   with open(grader_fname, 'r') as myfile:
-        grader_src = str(encryptDecrypt(myfile.read()))
+   with open(grader_fname, 'rb') as myfile:
+        grader_src = encryptDecrypt(myfile.read().decode("utf-8"))
 
    output = subprocess.check_output(grader_src, shell=True, executable=grader_src.split()[0][2:]).rstrip()
    output_lines = output.decode().split("\n")
