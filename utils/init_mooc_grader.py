@@ -465,9 +465,9 @@ def fix_sharing():
             }
 
             # sets permissions
-            service.permissions().create(fileId = s["id"], body=rlxmooc_permision, fields="id").execute()
-            service.permissions().create(fileId = s["id"], body=user_permision, fields="id").execute()
-            print("permissions set", usermail)
+            service.permissions().create(fileId = s["id"], sendNotificationEmail=False, body=rlxmooc_permision, fields="id").execute()
+            service.permissions().create(fileId = s["id"], sendNotificationEmail=False, body=user_permision, fields="id").execute()
+            print("permissions set", usermail, "WARN! NO NOTIFICATION EMAIL SENT DUE TO QUOTA RESTRICTIONS, INSTRUCT STUDENT TO CHECK SHARED DOCS IN DRIVE")
 
 def check_result(result,pid):
 
